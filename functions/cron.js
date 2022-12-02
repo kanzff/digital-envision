@@ -11,7 +11,6 @@ var dateDay = new Date().getDate();// start counting from 1
 //Cron Job to run around 9am Server Time 
 async function emailScheduler() {
   const users = await User.findAll()
-  // run cron every hour
   cron.schedule('* * 09 * * *', () => {
       ///The Main Function 
       const sendWishes =  
