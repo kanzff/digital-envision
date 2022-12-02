@@ -1,17 +1,8 @@
 const { User } = require('../models')
 
 class UserController {
-  static find(req, res, next) {
-    User.findAll()
-      .then(users => {
-        res.status(200).json(users)
-      })
-      .catch(err => {
-        next(err)
-      })
-  }
 
-  static register(req, res, next) {
+  static register(req, res) {
     const { firstName, lastName, location, birthday} = req.body
     const user = {
       firstName,
@@ -25,11 +16,11 @@ class UserController {
       res.status(201).json(user)
     })
     .catch(err => {
-      next(err)
+      res.status(500).json(err)
     })
   }
 
-  static update(req, res, next) {
+  static update(req, res) {
     const id = +req.params.id
     const { firstName, lastName, location, birthday} = req.body
     const user = {
@@ -51,11 +42,11 @@ class UserController {
       res.status(200).json(user)
     })
     .catch(err => {
-      next(err)
+      res.status(500).json(err)
     })
   }
 
-  static remove(req, res, next) {
+  static remove(req, res) {
     const id = +req.params.id
     User.destroy({
       where: {
@@ -66,7 +57,7 @@ class UserController {
       res.status(200).json(`User with id ${id} successfully deleted`)
     })
     .catch(err => {
-      next(err)
+      res.status(500).json(err)
     })
   }
 }
