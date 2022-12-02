@@ -1,7 +1,7 @@
 const express = require('express')
 const routes = require('./routes')
 const port = process.env.PORT || 3000
-const { sendBirthdayEmail }= require('./functions/cron')
+const { emailScheduler }= require('./functions/cron')
 
 const app = express()
 
@@ -13,6 +13,6 @@ app.use('/', routes)
 // require('./functions/cron')();
 
 app.listen(port, () => {
-  sendBirthdayEmail()
+  emailScheduler()
   console.log('app listening on port ' + port)
 })
