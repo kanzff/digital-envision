@@ -25,7 +25,7 @@ async function emailScheduler() {
           // Sending the Mail
           if(dateDay == dD && dateMonth == dM  ){ // checking if its 9 am on user local time not done yet
               console.log(element)
-              // sendEmail()
+              sendEmail()
           } 
       });
   });
