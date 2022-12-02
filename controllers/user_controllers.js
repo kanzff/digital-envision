@@ -1,6 +1,16 @@
 const { User } = require('../models')
 
 class UserController {
+  static find(req, res, next) {
+    User.findAll()
+      .then(users => {
+        res.status(200).json(users)
+      })
+      .catch(err => {
+        next(err)
+      })
+  }
+
   static register(req, res, next) {
     const { firstName, lastName, location, birthday} = req.body
     const user = {
