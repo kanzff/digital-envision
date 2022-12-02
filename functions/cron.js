@@ -12,7 +12,7 @@ var dateDay = new Date().getDate();// start counting from 1
 async function emailScheduler() {
   const users = await User.findAll()
   // run cron every hour
-  cron.schedule('* * 0 * * *', () => {
+  cron.schedule('* * 09 * * *', () => {
       ///The Main Function 
       const sendWishes =  
       // looping through the users
