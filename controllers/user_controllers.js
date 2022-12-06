@@ -3,10 +3,11 @@ const { User } = require('../models')
 class UserController {
 
   static register(req, res) {
-    const { firstName, lastName, location, birthday} = req.body
+    const { firstName, lastName, email, location, birthday} = req.body
     const user = {
       firstName,
       lastName,
+      email,
       location,
       birthday,
     }
@@ -22,10 +23,11 @@ class UserController {
 
   static update(req, res) {
     const id = +req.params.id
-    const { firstName, lastName, location, birthday} = req.body
+    const { firstName, lastName, email, location, birthday} = req.body
     const user = {
       firstName,
-      lastName,
+      lastName, 
+      email,
       location,
       birthday,
     }
