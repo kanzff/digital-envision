@@ -2,7 +2,7 @@
 const axios = require('axios');
 
 function sendEmail(email, name) {
-  axios.post('email-service.digitalenvision.com.au/send-email', {
+  axios.post('https://email-service.digitalenvision.com.au/send-email', {
     email,
     message: `“Hey, ${name} it's your birthday”.`
   })
